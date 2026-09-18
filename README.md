@@ -1,38 +1,102 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Wild Oasis
+
+The Wild Oasis is a luxury cabin booking web app built with Next.js. Guests can browse available cabins, filter by capacity, view booking details, sign in with Google, and manage their reservations.
+
+This project uses a modern Next.js app router setup with Supabase for data storage and NextAuth for authentication.
+
+## Live app:
+
+- https://the-rustic-haven-web.vercel.app/
+
+## Features
+
+- Browse premium cabins in the Italian Dolomites
+- Filter cabins by guest capacity
+- View detailed cabin information and pricing
+- Reserve dates with a calendar-based booking flow
+- Sign in with Google authentication
+- Manage personal reservations from the account area
+- Edit or delete existing bookings
+- Server-side data fetching and cache revalidation
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- Tailwind CSS
+- Supabase
+- NextAuth
+- date-fns
+- react-day-picker
+
+## Prerequisites
+
+- Node.js 18+
+- npm, yarn, or pnpm
+- Supabase project
+- Google OAuth credentials
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Create a `.env.local` file in the project root and add the required environment variables:
+
+   ```env
+   SUPABASE_URL=your_supabase_url
+   SUPABASE_KEY=your_supabase_anon_key
+   AUTH_GOOGLE_ID=your_google_client_id
+   AUTH_GOOGLE_SECRET=your_google_client_secret
+   AUTH_SECRET=your_nextauth_secret
+   ```
+
+3. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open http://localhost:3000 in your browser.
+
+## Available Scripts
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+npm run build
+npm run start
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```text
+app/
+  _components/
+  _lib/
+  about/
+  account/
+  api/
+  cabins/
+  login/
+public/
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Key app logic lives under `app/_lib/` for Supabase queries, auth setup, and booking actions.
 
-## Learn More
+## Environment Notes
 
-To learn more about Next.js, take a look at the following resources:
+- `SUPABASE_URL` and `SUPABASE_KEY` connect the app to the Supabase database used for cabins, guests, bookings, and settings.
+- `AUTH_GOOGLE_ID` and `AUTH_GOOGLE_SECRET` enable Google sign-in.
+- `AUTH_SECRET` is required for secure NextAuth session handling.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This app is configured for deployment on Vercel and can also be deployed to other Node.js hosting providers that support Next.js.
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## App web address
-
-the-wild-oasis-web-swart.vercel.app
+This repository is a custom cabin reservation app inspired by a luxury mountain retreat brand. If you are working locally, make sure your Supabase tables and Google OAuth configuration match the app’s expected schema before testing booking flows.
